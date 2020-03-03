@@ -15,7 +15,7 @@ public class Solution extends VersionControl {
             } else
                 start = mid+1;
         }
-        if(isBadVersion(start)) return start;
+        if(isBadVersion(start)) return start; //pointer points to same element, after start==end condition is reached
         return -1;
     }
 }

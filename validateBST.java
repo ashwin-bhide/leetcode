@@ -13,7 +13,7 @@ class Solution {
         Stack<TreeNode> s = new Stack<>();
         double inOrder = -Double.MAX_VALUE; //Double.MIN_VALUE is non-negative, so to get least number we multiple MAX_VALUE by -1
         //Inorder traversal using DFS(stacks) is best choice for BST problems
-        while(!s.isEmpty() || root!=null){
+        while(!s.isEmpty() || root!=null){//second condition is added to ensure that in first step, root is added to the stack
             while(root!=null){
                 s.push(root);
                 root=root.left;

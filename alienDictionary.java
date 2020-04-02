@@ -26,13 +26,13 @@ class Solution {
             int len = Math.min(first.length(),second.length());
             //start comparing character by character
             for(int i=0;i<len;i++){
-                char dest = first.charAt(i);
-                char src = second.charAt(i);
+                char src = first.charAt(i);
+                char dest = second.charAt(i);
                 if(src!=dest){
                     //if chars are not equal, then char in first appears before char in second, so update in graph
-                    if(!graph.get(dest).contains(src)){
-                        graph.get(dest).add(src);
-                        inDegree[src - 'a'] +=1;
+                    if(!graph.get(src).contains(dest)){
+                        graph.get(src).add(dest);
+                        inDegree[dest - 'a'] +=1;
                     }
                     break;
                 }

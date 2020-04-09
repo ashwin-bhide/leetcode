@@ -19,7 +19,7 @@ class Solution {
             
             if(nums[start]<nums[mid]){  //array to right is unsorted
                 start = mid+1;
-            } else if(nums[start]>nums[mid]){ //array to left is unsorted
+            } else { //array to left is unsorted
                 end = mid-1;
             }
         }

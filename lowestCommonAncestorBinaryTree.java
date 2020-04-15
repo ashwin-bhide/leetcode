@@ -9,19 +9,22 @@
  */
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if(root==null) 
+        //base cases
+        if(root==null)
             return null;
-        
-        if(root==p || root==q) // this is the searching code
+        if(root==p || root==q)
             return root;
         
-        //below 2 lines represent inorder traversal
-        TreeNode left = lowestCommonAncestor(root.left,p,q);
-        TreeNode right = lowestCommonAncestor(root.right,p,q);
+        //we keep on searching, going down the tree until our base cases are hit
+        TreeNode leftTree = lowestCommonAncestor(root.left,p,q);
+        TreeNode rightTree = lowestCommonAncestor(root.right,p,q);
         
-        if(left!=null && right!=null) // if both left and right are not null, then root is the LCA, pass it on to its ancestor
-            return root;
-        else
-            return left!=null?left:right; //if one is null and other is not, pass non-null value back to its ancestor
+        //once the recursion returns ie, base cases are hit, we check for our conditions
+        if(leftTree!=null && rightTree!=null)
+            return root; //voila the node we are at, is the lca
+        
+        //else, if either left/right is not null, we return the not null part
+        return (leftTree!=null)?leftTree:rightTree;
+            
     }
 }

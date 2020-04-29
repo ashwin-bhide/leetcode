@@ -30,6 +30,7 @@ class Solution {
         int leftSum = maxPathSumHelper(root.left);
         int rightSum = maxPathSumHelper(root.right);
         int rootVal = root.val;
+        //maximum contribution that 1 or 0 of its subtrees could add
         int sumUntilRoot = Math.max(Math.max(leftSum,rightSum)+rootVal,rootVal);
         
         //case 2: current node is the root of the maxPath
